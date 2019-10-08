@@ -1,43 +1,13 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
 import React, { useEffect, useState } from 'react';
 import Recipe from './Recipe';
 import './App.css';
 
-// function App() {
-//   console.log("lolol");
-//   console.log(process.env.REACT_APP_API_KEY);
-//   console.log("lolol");
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
 const App = () => {
-  // const APP_ID = "9c089c43";
-  // const API_KEY = "5bbe625dd846170d793fb00511b590a4";
   const APP_ID = process.env.REACT_APP_APP_ID;
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('egg')
+  const [query, setQuery] = useState('low carb')
 
   useEffect(() => {
     getRecipes();
@@ -49,7 +19,7 @@ const App = () => {
   );
 const data = await response.json();
     setRecipes(data.hits);
-    // console.log(data.hits);
+    console.log(data.hits);
   };
 
   const updateSearch = e => {
@@ -64,30 +34,41 @@ const data = await response.json();
  
   return (
     <div className="App">
-      <form onSubmit={getSearch} className="search-form">
-        <input 
-          type="text" 
-          className="search-bar" 
-          value={search} 
-          onChange={updateSearch} 
-        />
-        <button className="search-button" type="submit">
-          Search
-        </button>
-      </form>
-      <div className="recipes">
-      {recipes.map(recipe=>(
-        <Recipe 
-          key={recipe.recipe.label}
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          image={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-         />
-      ))}
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12ß">
+            <form onSubmit={getSearch} className="search-form">
+              <input 
+                type="text" 
+                className="search-bar" 
+                value={search} 
+                onChange={updateSearch} />
+              <button className="search-button" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="recipes">
+          <div className="row">
+            {recipes.map(recipe=>(
+              <Recipe 
+                key={recipe.recipe.label}
+                title={recipe.recipe.label}
+                calories={recipe.recipe.calories}
+                image={recipe.recipe.image}
+                ingredients={recipe.recipe.ingredients}
+                nutrients={recipe.recipe.totalNutrients}
+                carbs={recipe.recipe.totalNutrients.CHOCDF}
+                fat={recipe.recipe.totalNutrients.FAT}
+                protein={recipe.recipe.totalNutrients.PROCNT}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    
   )
 }
 
