@@ -1,31 +1,20 @@
-/* .App {
-  text-align: center;
-  padding: 10px;
-  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
-  min-height: 100vh;
+.navbar{
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  background: #007bff;
 }
-*/
-/* .search-form{ */
-  .navbar{
-    min-height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    background: #007bff;
-  }
-  .navbar-brand{
-    color: #ffffff;
-
-  }
-  .search-form{
-    /* .navbar{ */
-      min-height: 10vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-    }
+.navbar-brand{
+  color: #ffffff;
+  font-size: 2em;
+}
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .search-bar{
   width:50%;
   border: none;
@@ -37,9 +26,44 @@
   padding: 10px 20px;
   color: #ffffff;
 }
-/*
-.recipes {
+.alert{
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-} */
+}
+.alert span{
+  font-weight: bold;
+  font-size: 20px;
+}
+.alert .search-now{
+  text-align: center;
+  font-weight: bold;
+}
+.alert .search-now i{
+  font-size: 2.5em;
+}
+@media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .navbar-brand{
+    font-size: 2em;
+    text-align: center;
+    width: 100%;;
+  }
+  .alert{
+    text-align: center;
+    margin: 0 15px 15px 15px;
+    display: block;
+  }
+  .alert p {
+    font-size: 1.2em;
+  }
+  .alert .close span{
+    font-size: 2em;
+  }
+  .alert .search-now{
+    display: none;
+  }
+  .search-form{
+    width: 100%;;
+  }
+  .search-bar{
+    width: 70%;
+  }
+}
