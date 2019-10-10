@@ -78,9 +78,6 @@ const App = () => {
                 image={recipe.recipe.image}
                 ingredients={recipe.recipe.ingredients}
                 nutrients={recipe.recipe.totalNutrients}
-                carbs={recipe.recipe.totalNutrients.CHOCDF}
-                fat={recipe.recipe.totalNutrients.FAT}
-                protein={recipe.recipe.totalNutrients.PROCNT}
               />
             ))}
           </div>

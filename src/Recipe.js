@@ -1,7 +1,15 @@
 import React from 'react';
 import style from './recipe.module.css';
-const Recipe = ({title, calories, image, ingredients,nutrients, carbs, fat, protein, getcount }) => {
+const Recipe = ({title, calories, image, ingredients, nutrients, getcount }) => {
     // console.log(nutrients);
+    console.log("nutrients");
+
+    function getNutrients(nutrient){
+        return nutrient.label +" : " + nutrient.quantity.toFixed(2) + " " + nutrient.unit
+    }
+    const nuts=[
+        nutrients.CHOCDF, nutrients.ENERC_KCAL, nutrients.FAMS, nutrients.FAPU, nutrients.FASAT, nutrients.FAT, nutrients.FE, nutrients.FIBTG, nutrients.FOLDFE, nutrients.FOLFD, nutrients.K, nutrients.MG, nutrients.NA, nutrients.NIA, nutrients.P, nutrients.PROCNT, nutrients.RIBF, nutrients.SUGAR, nutrients.THIA, nutrients.TOCPHA, nutrients.VITA_RAE, nutrients.VITB6A
+    ];
     
     return(
         <div className={"col-lg-3 col-md-3 col-md-3 col-xs-12" + style.recipe_outer}>
@@ -25,25 +33,25 @@ const Recipe = ({title, calories, image, ingredients,nutrients, carbs, fat, prot
                                 <div className="modal-body">
                                     <ul className="nav nav-tabs" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link active" id="recipe-tab" data-toggle="tab" href={"#recipe"+ getcount} role="tab" aria-controls="ingredients" aria-selected="true">Recipe</a>
+                                            <a className="nav-link" id="recipe-tab" data-toggle="tab" href={"#recipe"+ getcount} role="tab" aria-controls="ingredients" aria-selected="true">Recipe</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" id="nutrition-tab" data-toggle="tab" href={"#nutrition"+ getcount} role="tab" aria-controls="nutrition" aria-selected="false">Nutrition Info</a>
+                                            <a className="nav-link active" id="nutrition-tab" data-toggle="tab" href={"#nutrition"+ getcount} role="tab" aria-controls="nutrition" aria-selected="false">Nutrition Info</a>
                                         </li>
                                     </ul>
                                     <div className="tab-content" id="myTabContent">
-                                        <div className="tab-pane fade show active" id={"recipe"+getcount} role="tabpanel">
+                                        <div className="tab-pane fade" id={"recipe"+getcount} role="tabpanel">
                                             <ul>
                                                 {ingredients.map((ingredient, key) => (
                                                     <li key={key}>{ingredient.text}</li>
                                                 ))}
                                             </ul>
                                         </div>
-                                        <div className="tab-pane fade" id={"nutrition"+getcount} role="tabpanel">
+                                        <div className="tab-pane fade show active" id={"nutrition"+getcount} role="tabpanel">
                                             <p>Calories : {calories.toFixed(2)}</p>
-                                            <div>{carbs.label} : {(carbs.quantity).toFixed(2) + " "+ carbs.unit}</div>
-                                            <div>{fat.label} : {(fat.quantity).toFixed(2) + " "+ fat.unit}</div>
-                                            <div>{protein.label} : {(protein.quantity).toFixed(2) + " "+ protein.unit}</div>
+                                            {nuts.map((nut, key) => (
+                                                    <div key={key}>{getNutrients(nut)}</div>
+                                                ))}
                                         </div>
                                     </div>
                                 </div>
@@ -58,3 +66,5 @@ const Recipe = ({title, calories, image, ingredients,nutrients, carbs, fat, prot
     )
 }
 export default Recipe;
+
+
