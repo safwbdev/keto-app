@@ -34,6 +34,15 @@ const data = await response.json();
  
   return (
     <div className="App">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <div className="container">
+        <a class="navbar-brand" href="#">Let's go Keto!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+      </nav>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12ß">
@@ -50,8 +59,7 @@ const data = await response.json();
           </div>
         </div>
 
-        <div className="recipes">
-          <div className="row">
+        <div className="recipes row">
             {recipes.map(recipe=>(
               <Recipe 
                 key={recipe.recipe.label}
@@ -66,7 +74,6 @@ const data = await response.json();
               />
             ))}
           </div>
-        </div>
       </div>
     </div>
   )
