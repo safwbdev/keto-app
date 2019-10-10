@@ -7,7 +7,8 @@ const App = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('low carb')
+  const [query, setQuery] = useState('low carb');
+  var count = 0;
 
   useEffect(() => {
     getRecipes();
@@ -19,7 +20,7 @@ const App = () => {
   );
 const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
+    // console.log(data.hits);
   };
 
   const updateSearch = e => {
@@ -34,20 +35,12 @@ const data = await response.json();
  
   return (
     <div className="App">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg">
 
       <div className="container">
-        <a class="navbar-brand" href="#">Let's go Keto!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        </div>
-      </nav>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12ß">
-            <form onSubmit={getSearch} className="search-form">
-              <input 
+        <a className="navbar-brand" href="#">Let's go Keto!</a>
+         <form onSubmit={getSearch} className="search-form form-inline my-2 my-lg-0">
+          <input 
                 type="text" 
                 className="search-bar" 
                 value={search} 
@@ -55,13 +48,23 @@ const data = await response.json();
               <button className="search-button" type="submit">
                 Search
               </button>
-            </form>
-          </div>
+        </form>
         </div>
-
+      </nav>
+      <div className="container">
+        <div className="row">
+        <div class="col-md-12 alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+        </div>
         <div className="recipes row">
             {recipes.map(recipe=>(
-              <Recipe 
+              count = count + 1,
+              <Recipe
+              getcount= {count} 
                 key={recipe.recipe.label}
                 title={recipe.recipe.label}
                 calories={recipe.recipe.calories}
