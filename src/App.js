@@ -54,7 +54,7 @@ const App = () => {
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-primary alert-dismissible fade show" role="alert">
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
             
-            <h1>KETO! WHAT"S THAT?</h1>
+            <h1>KETO? WHAT'S THAT?</h1>
             <p>The ketogenic diet (or keto diet, for short) is a low-carb, high-fat diet that offers many health benefits.</p>
             <p>It typically contains <span>75% fat</span>, <span>20% protein</span> and only <span>5% carbs</span></p>
           </div>

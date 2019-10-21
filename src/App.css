@@ -5,6 +5,7 @@
   align-items: center;
   margin-bottom: 30px;
   background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
 }
 .navbar-brand{
   color: #ffffff;
@@ -29,6 +30,9 @@
 }
 .alert{
   display: flex;
+  color: #e03201;
+  background-color: #f9cf22;
+  border-color: #f9cf22;
 }
 .alert span{
   font-weight: bold;
@@ -70,4 +74,29 @@
 }
 .tab-pane{
   padding: 15px 0;
+}
+.calorie-row{
+  border-bottom: 3px solid #000000;
+}
+.calorie-row .label{ 
+  font-weight: bold;
+  font-size: 1.5em;
+  display: flex;
+  align-items: flex-end;
+}
+.calorie-row .amount{ 
+  font-weight: bold;
+    font-size: 2em;
+    text-align: right;
+}
+.nutrient-row{
+  border-bottom: 1px solid #e4e4e4;
+  padding: 10px 0;
+}
+.nutrient-row .label{
+  font-weight: bold;
+}
+.nutrient-row .amount{
+  font-weight: bold;
+  text-align: right;
 }
