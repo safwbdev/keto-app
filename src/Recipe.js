@@ -29,7 +29,7 @@ const Recipe = ({title, calories, image, ingredients, nutrients, getcount }) => 
     ];
 
     return(
-        <div className={"col-lg-3 col-md-3 col-md-3 col-xs-12 " + style.recipe_outer}>
+        <div className={"col-lg-3 col-md-3 col-md-6 col-xs-12 " + style.recipe_outer}>
             <div className={"col-lg-12 col-md-12 col-sm-12 col-xs-12 "+ style.recipe} data-toggle="modal" data-target={"#recipeWindow" + getcount}>
                 <div className={"col-lg-12 col-md-12 col-sm-12 col-xs-12 "  + style.image} style={{backgroundImage: `url(${image})`}}>
                     <div className={style.overlay}></div>
