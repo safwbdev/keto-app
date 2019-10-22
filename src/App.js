@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Recipe from './Recipe';
 import './App.css';
+import navimage from './assets/whitewood.jpg';
 
 const App = () => {
   const APP_ID = process.env.REACT_APP_APP_ID;
@@ -34,7 +35,7 @@ const App = () => {
  
   return (
     <div className="App">
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg" style={{backgroundImage: `url(${navimage})`}}>
         <div className="container">
           <a className="navbar-brand" href="#">Let's go Keto!</a>
             <form onSubmit={getSearch} className="search-form form-inline my-2 my-lg-0">
@@ -51,6 +52,7 @@ const App = () => {
       </nav>
       <div className="container">
         <div className="row">
+          
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-primary alert-dismissible fade show" role="alert">
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
             
@@ -66,20 +68,25 @@ const App = () => {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+
         </div>
         <div className="recipes row">
-            {recipes.map(recipe=>(
-              count = count + 1,
-              <Recipe
-              getcount= {count} 
-                key={recipe.recipe.label}
-                title={recipe.recipe.label}
-                calories={recipe.recipe.calories}
-                image={recipe.recipe.image}
-                ingredients={recipe.recipe.ingredients}
-                nutrients={recipe.recipe.totalNutrients}
-              />
-            ))}
+          {
+            recipes.map(function(recipe, key){
+              count = count + 1; 
+              return <Recipe
+                        getcount= {count} 
+                        key={key}
+                        title={recipe.recipe.label}
+                        calories={recipe.recipe.calories}
+                        image={recipe.recipe.image}
+                        ingredients={recipe.recipe.ingredients}
+                        nutrients={recipe.recipe.totalNutrients}
+                      />
+            })
+          }
+                                 
+            
           </div>
       </div>
     </div>

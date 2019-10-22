@@ -4,11 +4,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
-  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
 }
 .navbar-brand{
-  color: #ffffff;
+  color: #4c4743;
   font-size: 2em;
   font-weight: bold;
 }
@@ -23,16 +21,16 @@
   padding: 10px;
 }
 .search-button{
-  background: lightcoral;
+  background: #4c4743;
   border: none;
   padding: 10px 20px;
   color: #ffffff;
 }
 .alert{
   display: flex;
-  color: #e03201;
-  background-color: #f9cf22;
-  border-color: #f9cf22;
+  color: #4c4743;
+  background-color: #d4beae;
+  border-color: #d4beae;
 }
 .alert span{
   font-weight: bold;
@@ -99,4 +97,27 @@
 .nutrient-row .amount{
   font-weight: bold;
   text-align: right;
+}
+.modal-body{
+  padding: 0;
+}
+.modal-body img{
+  width: 100%;
+}
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0;
+}
+link, .nav-tabs .nav-link{
+  border-radius: 0;
+}
+link, .nav-tabs .nav-link.active {
+  color: #4c4743;
+}
+link, .nav-tabs .nav-link:not(.active) {
+  color: #333333;
+  background: #e4e4e4;
 }
