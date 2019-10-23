@@ -44,36 +44,15 @@ const App = () => {
                 className="search-bar" 
                 value={search} 
                 onChange={updateSearch} />
-              <button className="search-button" type="submit">
-                Search
-              </button>
+              <button className="search-button" type="submit">Search</button>
             </form>
         </div>
       </nav>
       <div className="container">
-        <div className="row">
-          
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-primary alert-dismissible fade show" role="alert">
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-            
-            <h1>KETO? WHAT'S THAT?</h1>
-            <p>The ketogenic diet (or keto diet, for short) is a low-carb, high-fat diet that offers many health benefits.</p>
-            <p>It typically contains <span>75% fat</span>, <span>20% protein</span> and only <span>5% carbs</span></p>
-          </div>
-          <div className="col-lg-3 col-md-3 col-sm-3 search-now">
-          <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-            <p>Start searching now!</p>
-          </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-        </div>
         <div className="recipes row">
           {
             recipes.map(function(recipe, key){
-              count = count + 1; 
+              count = count + 1; //for modal id
               return <Recipe
                         getcount= {count} 
                         key={key}
@@ -84,10 +63,8 @@ const App = () => {
                         nutrients={recipe.recipe.totalNutrients}
                       />
             })
-          }
-                                 
-            
-          </div>
+          } 
+        </div>
       </div>
     </div>
   )

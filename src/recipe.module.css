@@ -39,21 +39,26 @@
     text-align: center;
     z-index: 0;
     font-size: 2em;
+
+  transition: 0.5s;
 }
 .recipe:hover{
     cursor: pointer;
 }
-.recipe:hover .image a span {display:none}
+.recipe:hover .image a span {display:none;
+    transition: 0.5s;}
 .recipe:hover .image a  {
     border: 2px solid #ffffff;
     color: #ffffff;
     font-weight: bold;
-
     padding: 10px;
     font-size: 1.5em;
 }
 .recipe:hover .image a:before {
-    content:"View Recipe"}
+    content:"View Recipe";
+
+    font-size: 1.2em;
+}
 .recipe img{
     width: 100%;
     border-radius: 3% 3% 0 0;
