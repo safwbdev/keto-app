@@ -42,51 +42,65 @@ const Recipe = ({title, calories, image, ingredients, nutrients, getcount }) => 
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title">{title}</h5>
+                            <h3 className="modal-title">{title}</h3>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
-                            <div style={{color:'red'}}><img src={image} /></div>
-                            <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                <li className="nav-item">
-                                    <a className="nav-link active" id="recipe-tab" data-toggle="tab" href={"#recipe"+ getcount} role="tab" aria-controls="ingredients" aria-selected="true">Recipe</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link " id="nutrition-tab" data-toggle="tab" href={"#nutrition"+ getcount} role="tab" aria-controls="nutrition" aria-selected="false">Nutrition Info</a>
-                                </li>
-                            </ul>
-                            <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id={"recipe"+getcount} role="tabpanel">
-                                    <ul>
-                                        {ingredients.map((ingredient, key) => (
-                                            <li key={key}>{ingredient.text}</li>
-                                        ))}
-                                    </ul>
+                            <div className="row">
+                                <div className="col-md-4 modal-col">
+                                    <div style={{color:'red'}}><img src={image} /></div>
                                 </div>
-                                <div className="tab-pane fade" id={"nutrition"+getcount} role="tabpanel">
-                                    <div className="col-md-12 ">
-                                        <div className="row calorie-row">
-                                                <div className="col-md-6 label">Calories</div>
-                                                <div className="col-md-6 amount">{calories.toFixed(2)}</div>
-                                        </div>  
-                                        {fats.map((data, key) => (
-                                            <Nutrient key={key} getData={data} />
-                                        ))}
-                                        {sodium.map((data, key) => (
-                                            <Nutrient key={key} getData={data} />
-                                        ))}
-                                        {carbs.map((data, key) => (
-                                            <Nutrient key={key} getData={data} />
-                                        ))}
-                                        {protien.map((data, key) => (
-                                            <Nutrient key={key} getData={data} />
-                                        ))}
-                                        {vitamins.map((data, key) => (
-                                            <Nutrient key={key} getData={data} />
-                                        ))}
+                                <div className="col-md-8 modal-col">
+                                    <ul className="nav nav-tabs" id="myTab" role="tablist">
+                                        <li className="nav-item">
+                                            <a className="nav-link active" id="recipe-tab" data-toggle="tab" href={"#recipe"+ getcount} role="tab" aria-controls="ingredients" aria-selected="true">Recipe</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link " id="nutrition-tab" data-toggle="tab" href={"#nutrition"+ getcount} role="tab" aria-controls="nutrition" aria-selected="false">Nutrition Info</a>
+                                        </li>
+                                    </ul>
+                                    <div className="tab-content" id="myTabContent">
+                                        <div className="tab-pane fade show active" id={"recipe"+getcount} role="tabpanel">
+                                            <ul>
+                                                {ingredients.map((ingredient, key) => (
+                                                    <li key={key}>{ingredient.text}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className="tab-pane fade" id={"nutrition"+getcount} role="tabpanel">
+                                            <div className="col-md-12 ">
+                                                <div className="row calorie-row">
+                                                        <div className="col-md-6 label">Calories</div>
+                                                        <div className="col-md-6 amount">{calories.toFixed(2)}</div>
+                                                </div> 
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        {fats.map((data, key) => (
+                                                            <Nutrient key={key} getData={data} />
+                                                        ))}
+                                                        {sodium.map((data, key) => (
+                                                            <Nutrient key={key} getData={data} />
+                                                        ))}
+                                                        {carbs.map((data, key) => (
+                                                            <Nutrient key={key} getData={data} />
+                                                        ))}
+                                                        {protien.map((data, key) => (
+                                                            <Nutrient key={key} getData={data} />
+                                                        ))}
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        {vitamins.map((data, key) => (
+                                                            <Nutrient key={key} getData={data} />
+                                                        ))}
+
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

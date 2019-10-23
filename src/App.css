@@ -26,6 +26,10 @@
   padding: 10px 20px;
   color: #ffffff;
 }
+.pad-lr-0{
+  padding-left: 0;
+  padding-right: 0;
+}
 .alert{
   display: flex;
   color: #4c4743;
@@ -69,6 +73,18 @@
   .search-bar{
     width: 70%;
   }
+}
+@media only screen and (min-width: 768px){
+  .modal-dialog{
+    max-width: 80%;
+  }
+  .modal-dialog .row{
+    margin: 0;
+  }
+  .modal-dialog .row .modal-col{
+    padding: 0;
+  }
+
 }
 .tab-pane{
   padding: 15px 0;
