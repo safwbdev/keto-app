@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Recipe from './Recipe';
+import RecipeList from './components/RecipeList';
 import './App.css';
 import navimage from './assets/whitewood.jpg';
 
@@ -9,7 +9,6 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('low carb');
-  var count = 0;
 
   useEffect(() => {
     getRecipes();
@@ -32,6 +31,8 @@ const App = () => {
     setQuery(search);
     setSearch();
   }
+
+  console.log(recipes);
  
   return (
     <div className="App">
@@ -49,22 +50,13 @@ const App = () => {
         </div>
       </nav>
       <div className="container">
-        <div className="recipes row">
-          {
-            recipes.map(function(recipe, key){
-              count = count + 1; //for modal id
-              return <Recipe
-                        getcount= {count} 
-                        key={key}
-                        title={recipe.recipe.label}
-                        calories={recipe.recipe.calories}
-                        image={recipe.recipe.image}
-                        ingredients={recipe.recipe.ingredients}
-                        nutrients={recipe.recipe.totalNutrients}
-                      />
-            })
-          } 
-        </div>
+        {recipes.length > 0 ? (
+          <RecipeList recipes={recipes} />
+        ) : (
+          <div className="loading row">
+            <h1>LOADING</h1>
+          </div>
+          )}
       </div>
     </div>
   )

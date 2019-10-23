@@ -137,3 +137,9 @@ link, .nav-tabs .nav-link:not(.active) {
   color: #333333;
   background: #e4e4e4;
 }
+.loading.row{
+height: 50vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
